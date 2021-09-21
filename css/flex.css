@@ -1,0 +1,33 @@
+/* Först deklarerar jag att innehållet ska vara display: flex;. */
+/* Sedan centrerar jag detta med justify-content: center; */
+/* Valde enheten vh eftersom den bäst passar i detta sammanhang. */
+main {
+  display: flex;
+  justify-content: center;
+  height: 87vh;
+}
+
+/* Satte samtliga sections i position: relativ; för att få ned dessa med hjälp utav top. */
+/* Därefter färg och ytterligare margin mellan elementen så att dom blir separerade. */
+section {
+  position: relative;
+  top: 10vh;
+  background-color: lightpink;
+  margin: 2%;
+}
+
+/* Använde mig av nth-child för att sektionera upp elementen. */
+/* Flex-grow för att ange den relativa storleken mellan dessa. */
+section {
+  flex-grow: 1;
+}
+main section:nth-child(2) {
+  flex-grow: 2;
+}
+
+/* Justify-content, enligt riktning (column eller row) */
+/* Läs igenom justify-content värden på w3schools. */
+/* Align-items, vertikal riktning */
+/* Använd gap istället för margin/padding vid flex. */
+/* Flex-wrap:wrap; för att lägga elementen under varandra då skärmbredden/angedd bredd
+i förälder ej är tillräcklig. */

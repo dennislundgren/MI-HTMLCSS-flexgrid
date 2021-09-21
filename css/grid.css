@@ -1,0 +1,32 @@
+/* Har valt att inkludera box-sizing i denna för att få med padding i totala bredden. */
+/* Deklarerat grid-attributen som representerar den mall vi har att utgå från. */
+/* Därefter olika storleksanpassningar mot mallen. */
+/* Liksom i Flex-uppgiften har jag använt enheten vh för att få höjden på gridden. */
+main {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns:
+    auto auto
+    auto auto auto auto;
+  width: 100%;
+  padding: 1%;
+  column-gap: 2%;
+  height: 95vh;
+}
+
+/* Färg på kolumnerna. */
+section {
+  background-color: lightpink;
+}
+
+/* Sektionerna har jag delat upp i sex delar. Andra section-elementet tar upp två delar. */
+main section:nth-child(2) {
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+
+/* Tredje section-elementet tar också upp två delar. */
+main section:nth-child(3) {
+  grid-column-start: 4;
+  grid-column-end: 6;
+}

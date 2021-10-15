@@ -2,31 +2,79 @@
 /* Deklarerat grid-attributen som representerar den mall vi har att utgå från. */
 /* Därefter olika storleksanpassningar mot mallen. */
 /* Liksom i Flex-uppgiften har jag använt enheten vh för att få höjden på gridden. */
+
+* {
+  box-sizing: border-box;
+}
+
 main {
   box-sizing: border-box;
   display: grid;
-  grid-template-columns:
-    auto auto
-    auto auto auto auto;
+  grid-template-columns: auto;
+  grid-template-rows: 22% 22% 22% 22%;
   width: 100%;
-  padding: 1%;
-  column-gap: 2%;
-  height: 95vh;
+  gap: 2%;
+  height: 97vh;
 }
 
 /* Färg på kolumnerna. */
 section {
-  background-color: lightpink;
+  display: grid;
+  border: 1px solid salmon;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
 }
 
-/* Sektionerna har jag delat upp i sex delar. Andra section-elementet tar upp två delar. */
-main section:nth-child(2) {
-  grid-column-start: 2;
-  grid-column-end: 4;
+p {
+  padding: 20px;
 }
 
-/* Tredje section-elementet tar också upp två delar. */
-main section:nth-child(3) {
-  grid-column-start: 4;
-  grid-column-end: 6;
+section > * {
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  margin: initial;
+  transition: all 0.33s ease-in-out;
+}
+
+section:nth-child(2) {
+  background-image: url(../images/calathea.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+section:nth-child(4) {
+  background-image: url(../images/calathea2.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 768px) {
+  main {
+    box-sizing: border-box;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 18% 28% 28% 18%;
+    grid-template-rows: unset;
+    grid-template-areas: "text-1 calathea-1 calathea-2 text-2";
+    width: 100%;
+    height: 90vh;
+    gap: 2%;
+  }
+  section:nth-child(2) {
+    grid-area: calathea-1;
+  }
+
+  section:nth-child(4) {
+    grid-area: calathea-2;
+  }
+
+  section > * {
+    padding: 20px;
+  }
 }

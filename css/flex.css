@@ -1,33 +1,61 @@
 /* Först deklarerar jag att innehållet ska vara display: flex;. */
 /* Sedan centrerar jag detta med justify-content: center; */
 /* Valde enheten vh eftersom den bäst passar i detta sammanhang. */
+/* Lagt till box-sizing för att få bättre kontroll över paddings ifall jag vill använda det. */
+* {
+  box-sizing: border-box;
+}
+
+/* Gap istället för margin, dock är margin kvar då jag vill ha utrymme utanför main-boxen. */
 main {
   display: flex;
   justify-content: center;
-  height: 87vh;
+  flex-direction: column;
+  height: 90vh;
+  gap: 2%;
+  margin: 2%;
 }
 
 /* Satte samtliga sections i position: relativ; för att få ned dessa med hjälp utav top. */
 /* Därefter färg och ytterligare margin mellan elementen så att dom blir separerade. */
 section {
-  position: relative;
-  top: 10vh;
-  background-color: lightpink;
-  margin: 2%;
-}
-
-/* Använde mig av nth-child för att sektionera upp elementen. */
-/* Flex-grow för att ange den relativa storleken mellan dessa. */
-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-grow: 1;
-}
-main section:nth-child(2) {
-  flex-grow: 2;
+  text-align: center;
+  height: 100%;
+  border: 1px solid salmon;
 }
 
-/* Justify-content, enligt riktning (column eller row) */
-/* Läs igenom justify-content värden på w3schools. */
-/* Align-items, vertikal riktning */
-/* Använd gap istället för margin/padding vid flex. */
-/* Flex-wrap:wrap; för att lägga elementen under varandra då skärmbredden/angedd bredd
-i förälder ej är tillräcklig. */
+/* Bilden på calathean. */
+section div {
+  height: 100%;
+  width: 100%;
+  background-image: url(../images/calathea.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Utrymme för texten. */
+p {
+  padding: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  main {
+    flex-direction: row;
+    align-items: center;
+  }
+  /* Använde mig av nth-child för att sektionera upp elementen. */
+  /* Flex-grow för att ange den relativa storleken mellan dessa. */
+  /* Lagt till Flex basis för att justera storleken i dokumenten för desktop istället för grow. */
+  section {
+    flex-basis: 25%;
+    height: 100%;
+  }
+  main section:nth-child(2) {
+    flex-basis: 50%;
+  }
+}
